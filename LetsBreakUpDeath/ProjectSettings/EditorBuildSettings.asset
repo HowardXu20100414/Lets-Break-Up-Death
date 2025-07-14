@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/1st Level Bridge.unity
+    guid: 9085bb8e30a1346f094e7a7aac786848
   m_configObjects: {}
