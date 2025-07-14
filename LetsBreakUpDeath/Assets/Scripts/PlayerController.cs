@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("activated dash");
         if (horizontalInput == 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, dashForce);
+            rb.AddForce(Vector2.up * dashForce, ForceMode2D.Impulse);
         }
         else
         {
-            rb.velocity = new Vector2(horizontalInput * dashForce, rb.velocity.y);
+            rb.AddForce(new Vector2(horizontalInput * dashForce, 0), ForceMode2D.Impulse);
         }
     }
 

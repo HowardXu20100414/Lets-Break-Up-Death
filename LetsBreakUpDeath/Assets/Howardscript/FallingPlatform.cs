@@ -3,11 +3,11 @@ using System.Linq;
 
 public class BridgeFallingPiece : MonoBehaviour
 {
-    public float delayBetweenPieces = 0.2f;
+    public float delayBetweenPieces;
     [HideInInspector]
     public int fallIndex = 0;
     public float destroyAfter = 5f;
-
+    public bool firstBridgePiece = false;
     Rigidbody2D rb;
 
     void Awake()
@@ -18,6 +18,14 @@ public class BridgeFallingPiece : MonoBehaviour
 
     void Start()
     {
+        if (!firstBridgePiece)
+        {
+            delayBetweenPieces = Random.Range(1.5f, 2.5f);
+        } else
+        {
+            delayBetweenPieces = 5f;
+        }
+
         AssignFallIndex();
 
         float fallDelay = fallIndex * delayBetweenPieces;
@@ -26,7 +34,7 @@ public class BridgeFallingPiece : MonoBehaviour
 
     void AssignFallIndex()
     {
-        // Find all BridgeFallingPiece in the scene (or limit to parent children)
+        // Find all BridgeFallingPiece in the scene 
         BridgeFallingPiece[] allPieces = null;
 
         if (transform.parent != null)
