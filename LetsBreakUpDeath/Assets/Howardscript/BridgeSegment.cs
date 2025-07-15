@@ -10,7 +10,7 @@ public class BridgeFallingPiece : MonoBehaviour
     public float shakeStrength = 0.1f;
     public float destroyAfter = 5f;
 
-    private int fallIndex = 0;
+    public int fallIndex = 0;
     private Rigidbody2D rb;
 
     void Awake()
