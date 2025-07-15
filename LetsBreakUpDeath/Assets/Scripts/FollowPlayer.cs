@@ -5,8 +5,10 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    float upperBound = 7.8f;
-    float lowerBound = 0f;
+    public float upperBound = 15f;
+    public float lowerBound = 0f;
+    public float pushUp; // how far to push the camera up
+    public float divideBy = 3; // what do divide the camera y by
     void Update()
     {
         transform.position = new Vector3(player.transform.position.x, GetCameraY(), transform.position.z);
@@ -15,7 +17,7 @@ public class FollowPlayer : MonoBehaviour
 
     float GetCameraY()
     {
-        float cameraModified = player.transform.position.y / 3 + 5;
+        float cameraModified = player.transform.position.y / divideBy + pushUp;
 
         if (cameraModified <= lowerBound)
         {
