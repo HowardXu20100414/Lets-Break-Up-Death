@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BridgeFallingPiece : MonoBehaviour
 {
-    public float delayBetweenPieces = 0.2f;
+    public float delayBetweenPieces = 1f;
     public float shakeDuration = 0.4f;
     public float shakeStrength = 0.1f;
     public float destroyAfter = 5f;
