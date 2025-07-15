@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:LetsBreakUpDeath/Assets/Prefabs/Cars/TaxiA.prefab.meta
 guid: ebe650b571b7e4f4f8c251f4b6c342c5
+========
+guid: dba6bd5821ac0d544b062294c1a78955
+>>>>>>>> Stashed changes:LetsBreakUpDeath/Assets/Prefabs/Cars/RedCarA.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
