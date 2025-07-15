@@ -19,23 +19,7 @@ public class BridgeFallingPiece : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    void Start()
-    {
-        StartCoroutine(DelayedAssignFallIndex());
-    }
-
-    IEnumerator DelayedAssignFallIndex()
-    {
-        // Wait one frame to make sure all bridge pieces are loaded
-        yield return null;
-
-        AssignFallIndex();
-
-        float fallDelay = fallIndex * delayBetweenPieces;
-        Invoke(nameof(PreFallShake), fallDelay);
-    }
-
-    void AssignFallIndex()
+    public void AssignFallIndex()
     {
         BridgeFallingPiece[] allPieces;
 
@@ -48,7 +32,6 @@ public class BridgeFallingPiece : MonoBehaviour
             allPieces = FindObjectsOfType<BridgeFallingPiece>();
         }
 
-        // Sort by x position (left to right)
         var sorted = allPieces.OrderBy(p => p.transform.position.x).ToList();
 
         for (int i = 0; i < sorted.Count; i++)
@@ -59,6 +42,12 @@ public class BridgeFallingPiece : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void TriggerFallSequence()
+    {
+        float fallDelay = fallIndex * delayBetweenPieces;
+        Invoke(nameof(PreFallShake), fallDelay);
     }
 
     void PreFallShake()
