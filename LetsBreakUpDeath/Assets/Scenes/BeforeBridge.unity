@@ -133,12 +133,12 @@ GameObject:
   m_Component:
   - component: {fileID: 62156716}
   - component: {fileID: 62156715}
-  - component: {fileID: 62156714}
   - component: {fileID: 62156713}
   - component: {fileID: 62156712}
+  - component: {fileID: 62156717}
   m_Layer: 7
   m_Name: RockCube (13)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62156711}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -215,22 +215,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &62156714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62156711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &62156715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -298,6 +282,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62156717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62156711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &87537401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7374091254911760554, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
@@ -313,13 +314,12 @@ GameObject:
   m_Component:
   - component: {fileID: 112646097}
   - component: {fileID: 112646096}
-  - component: {fileID: 112646095}
-  - component: {fileID: 112646094}
   - component: {fileID: 112646093}
   - component: {fileID: 112646092}
+  - component: {fileID: 112646098}
   m_Layer: 7
   m_Name: RockCube (11)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112646091}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -396,38 +396,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &112646094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112646091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
---- !u!114 &112646095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112646091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &112646096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -495,6 +463,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112646098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112646091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &291237852
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,12 +490,12 @@ GameObject:
   m_Component:
   - component: {fileID: 291237857}
   - component: {fileID: 291237856}
-  - component: {fileID: 291237855}
   - component: {fileID: 291237854}
   - component: {fileID: 291237853}
+  - component: {fileID: 291237858}
   m_Layer: 7
   m_Name: RockCube (5)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,7 +553,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291237852}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -587,22 +572,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &291237855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291237852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &291237856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,6 +639,107 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291237858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291237852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
+--- !u!1 &451813581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451813583}
+  - component: {fileID: 451813582}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &451813582
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451813581}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: bc33b79a6f7eb45779c81f4204aaecc9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &451813583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451813581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17, y: 6.5, z: -0.04929579}
+  m_LocalScale: {x: 7.7836156, y: 8.600806, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &528180772
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,33 +750,16 @@ GameObject:
   m_Component:
   - component: {fileID: 528180778}
   - component: {fileID: 528180777}
-  - component: {fileID: 528180776}
   - component: {fileID: 528180775}
   - component: {fileID: 528180774}
-  - component: {fileID: 528180773}
+  - component: {fileID: 528180779}
   m_Layer: 7
   m_Name: RockLong (7)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &528180773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528180772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &528180774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -760,7 +813,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528180772}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -779,22 +832,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &528180776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528180772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!212 &528180777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -862,6 +899,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528180779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528180772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &561776384
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,49 +926,16 @@ GameObject:
   m_Component:
   - component: {fileID: 561776388}
   - component: {fileID: 561776387}
-  - component: {fileID: 561776386}
-  - component: {fileID: 561776385}
   - component: {fileID: 561776390}
   - component: {fileID: 561776389}
+  - component: {fileID: 561776391}
   m_Layer: 7
   m_Name: RockCube (1)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &561776385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561776384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
---- !u!114 &561776386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561776384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &561776387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1035,7 +1056,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561776384}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1054,6 +1075,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &561776391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561776384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &670830125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,12 +1102,12 @@ GameObject:
   m_Component:
   - component: {fileID: 670830130}
   - component: {fileID: 670830129}
-  - component: {fileID: 670830128}
   - component: {fileID: 670830127}
   - component: {fileID: 670830126}
+  - component: {fileID: 670830131}
   m_Layer: 7
   m_Name: RockCube (12)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1127,7 +1165,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670830125}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1146,22 +1184,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &670830128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670830125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &670830129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1229,6 +1251,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670830131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670830125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1001 &714334510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1300,13 +1339,12 @@ GameObject:
   m_Component:
   - component: {fileID: 801371294}
   - component: {fileID: 801371293}
-  - component: {fileID: 801371292}
-  - component: {fileID: 801371291}
   - component: {fileID: 801371290}
   - component: {fileID: 801371289}
+  - component: {fileID: 801371295}
   m_Layer: 7
   m_Name: RockCube (8)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1364,7 +1402,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801371288}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1383,38 +1421,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &801371291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801371288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
---- !u!114 &801371292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801371288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &801371293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1482,6 +1488,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801371295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801371288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &810309359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,12 +1515,12 @@ GameObject:
   m_Component:
   - component: {fileID: 810309364}
   - component: {fileID: 810309363}
-  - component: {fileID: 810309362}
   - component: {fileID: 810309361}
   - component: {fileID: 810309360}
+  - component: {fileID: 810309365}
   m_Layer: 7
   m_Name: RockCube (10)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,7 +1578,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810309359}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1574,22 +1597,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &810309362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810309359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &810309363
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1657,6 +1664,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810309365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810309359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &969718021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,33 +1691,16 @@ GameObject:
   m_Component:
   - component: {fileID: 969718027}
   - component: {fileID: 969718026}
-  - component: {fileID: 969718025}
   - component: {fileID: 969718024}
   - component: {fileID: 969718023}
-  - component: {fileID: 969718022}
+  - component: {fileID: 969718028}
   m_Layer: 7
   m_Name: RockLong (1)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &969718022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969718021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &969718023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1747,7 +1754,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969718021}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1766,22 +1773,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &969718025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969718021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &969718026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1849,6 +1840,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &969718028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969718021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &973876604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,13 +1867,12 @@ GameObject:
   m_Component:
   - component: {fileID: 973876610}
   - component: {fileID: 973876609}
-  - component: {fileID: 973876608}
-  - component: {fileID: 973876607}
   - component: {fileID: 973876606}
   - component: {fileID: 973876605}
+  - component: {fileID: 973876611}
   m_Layer: 7
   m_Name: RockCube (4)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,7 +1930,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973876604}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1942,38 +1949,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &973876607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973876604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
---- !u!114 &973876608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973876604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &973876609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2041,6 +2016,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973876611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973876604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &987378080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,6 +2070,7 @@ MonoBehaviour:
   shakeDuration: 0.3
   shakeStrength: 0.05
   destroyAfter: 5
+  fallIndex: 0
 --- !u!61 &987378082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2166,6 +2159,7 @@ MonoBehaviour:
   shakeDuration: 0.3
   shakeStrength: 0.3
   destroyAfter: 5
+  fallIndex: 0
 --- !u!212 &987378085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2243,12 +2237,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1067674113}
   - component: {fileID: 1067674112}
-  - component: {fileID: 1067674111}
   - component: {fileID: 1067674110}
   - component: {fileID: 1067674109}
+  - component: {fileID: 1067674114}
   m_Layer: 7
   m_Name: RockCube (9)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2306,7 +2300,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067674108}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2325,22 +2319,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1067674111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067674108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1067674112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2408,6 +2386,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1067674114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067674108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1273757151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,32 +2413,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1273757154}
   - component: {fileID: 1273757153}
-  - component: {fileID: 1273757152}
   - component: {fileID: 1273757156}
   - component: {fileID: 1273757155}
+  - component: {fileID: 1273757157}
   m_Layer: 7
   m_Name: RockCube (2)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1273757152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273757151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1273757153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2564,7 +2543,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273757151}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2583,6 +2562,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1273757157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273757151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1289464288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,33 +2683,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1299861736}
   - component: {fileID: 1299861735}
-  - component: {fileID: 1299861734}
   - component: {fileID: 1299861733}
   - component: {fileID: 1299861732}
-  - component: {fileID: 1299861731}
+  - component: {fileID: 1299861737}
   m_Layer: 7
   m_Name: RockLong (3)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1299861731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299861730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &1299861732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2767,7 +2746,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299861730}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2786,22 +2765,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1299861734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299861730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1299861735
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2869,6 +2832,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1299861737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299861730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1356350078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,32 +2859,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1356350081}
   - component: {fileID: 1356350080}
-  - component: {fileID: 1356350079}
   - component: {fileID: 1356350083}
   - component: {fileID: 1356350082}
+  - component: {fileID: 1356350084}
   m_Layer: 7
   m_Name: RockCube
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1356350079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356350078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1356350080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3025,7 +2989,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356350078}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3044,6 +3008,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1356350084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356350078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1419712665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,33 +3035,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1419712671}
   - component: {fileID: 1419712670}
-  - component: {fileID: 1419712669}
   - component: {fileID: 1419712668}
   - component: {fileID: 1419712667}
-  - component: {fileID: 1419712666}
+  - component: {fileID: 1419712672}
   m_Layer: 7
   m_Name: RockLong (4)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1419712666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419712665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &1419712667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3134,7 +3098,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419712665}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3153,22 +3117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1419712669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419712665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1419712670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3236,6 +3184,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1419712672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419712665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1001 &1454531091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,12 +3394,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1479642757}
   - component: {fileID: 1479642756}
-  - component: {fileID: 1479642755}
   - component: {fileID: 1479642754}
   - component: {fileID: 1479642753}
+  - component: {fileID: 1479642758}
   m_Layer: 7
   m_Name: RockCube (7)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3492,7 +3457,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479642752}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3511,22 +3476,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1479642755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479642752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1479642756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3594,6 +3543,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479642758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479642752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1551868546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,33 +3570,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1551868552}
   - component: {fileID: 1551868551}
-  - component: {fileID: 1551868550}
   - component: {fileID: 1551868549}
   - component: {fileID: 1551868548}
-  - component: {fileID: 1551868547}
+  - component: {fileID: 1551868553}
   m_Layer: 7
   m_Name: RockLong (5)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1551868547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551868546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &1551868548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3684,7 +3633,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551868546}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3703,22 +3652,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1551868550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551868546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1551868551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3786,6 +3719,114 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551868553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551868546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
+--- !u!1 &1561189771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561189773}
+  - component: {fileID: 1561189772}
+  - component: {fileID: 1561189774}
+  m_Layer: 0
+  m_Name: BridgeFallingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1561189772
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561189771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.41735363}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 11.642513}
+  m_EdgeRadius: 0
+--- !u!4 &1561189773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561189771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.2, y: 4, z: -0.047293074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561189774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561189771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d4c399c49f14f3a801f661b0a83211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
 --- !u!1 &1651508365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,12 +3837,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1651508370}
   - component: {fileID: 1651508369}
-  - component: {fileID: 1651508368}
   - component: {fileID: 1651508367}
   - component: {fileID: 1651508366}
+  - component: {fileID: 1651508371}
   m_Layer: 7
   m_Name: RockCube (6)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3859,7 +3900,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651508365}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3878,22 +3919,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1651508368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651508365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1651508369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3961,6 +3986,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651508371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651508365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1001 &1756572885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4084,33 +4126,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1936087844}
   - component: {fileID: 1936087843}
-  - component: {fileID: 1936087842}
   - component: {fileID: 1936087846}
   - component: {fileID: 1936087845}
   - component: {fileID: 1936087847}
   m_Layer: 7
   m_Name: RockLong
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1936087842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936087841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!212 &1936087843
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4231,7 +4256,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936087841}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -4262,10 +4287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
   destroyAfter: 5
+  fallIndex: 0
 --- !u!1 &1999084850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,33 +4302,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1999084856}
   - component: {fileID: 1999084855}
-  - component: {fileID: 1999084854}
   - component: {fileID: 1999084853}
   - component: {fileID: 1999084852}
-  - component: {fileID: 1999084851}
+  - component: {fileID: 1999084857}
   m_Layer: 7
   m_Name: RockLong (2)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1999084851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999084850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 1
-  shakeDuration: 0.3
-  shakeStrength: 0.05
-  destroyAfter: 5
 --- !u!61 &1999084852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4356,7 +4365,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999084850}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -4375,22 +4384,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1999084854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999084850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &1999084855
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4458,6 +4451,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999084857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999084850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1001 &2046157661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4545,12 +4555,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2098378086}
   - component: {fileID: 2098378085}
-  - component: {fileID: 2098378084}
   - component: {fileID: 2098378083}
   - component: {fileID: 2098378082}
+  - component: {fileID: 2098378087}
   m_Layer: 7
   m_Name: RockCube (3)
-  m_TagString: Untagged
+  m_TagString: BridgePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4608,7 +4618,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098378081}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -4627,22 +4637,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2098378084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098378081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenPieces: 0.2
-  shakeDuration: 0.3
-  shakeStrength: 0.3
-  destroyAfter: 5
 --- !u!212 &2098378085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4710,6 +4704,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1774204466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098378087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098378081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e1f85366b84b9d8b1e2000f03d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenPieces: 0.1
+  shakeDuration: 0.4
+  shakeStrength: 0.1
+  destroyAfter: 5
+  fallIndex: 0
 --- !u!1001 &4753389646999685629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4800,3 +4811,5 @@ SceneRoots:
   - {fileID: 1454531091}
   - {fileID: 2046157661}
   - {fileID: 1774204466}
+  - {fileID: 1561189773}
+  - {fileID: 451813583}
