@@ -1,29 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+
+    [Header("Movement")]
     public float moveSpeed = 10f;
     public float jumpSpeed = 5f;
 
+    [Header("Ground Check")]
     public Transform groundCheckPoint;
     public LayerMask floorLayer;
     float groundCheckRadius = .2f;
-    public int maxJumps = 2;
-    public int jumpsRemaining = 0;
-    float dashCooldown;
-    float dashCooldownMax = 5f; //what dash cooldown is set to
-    public float dashForce = 30f;
 
+    [Header("Jump")]
+    int maxJumpsInAir = 1; // 1 = double jump
+    int jumpsRemaining = 0;
+
+    [Header("Dash")]
+    float dashForce = 25f;
+    float dashCooldownMax = 1.5f;
+    float dashCooldown;
+
+    float dashDuration = 0.25f; // how long dash lasts
+    bool isDashing = false;
+    float dashTimeRemaining;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
     bool CheckGrounded()
     {
         return Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, floorLayer);
@@ -31,7 +40,26 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        dashCooldown -= Time.deltaTime;
+
+        if (isDashing)
+        {
+            dashTimeRemaining -= Time.deltaTime;
+
+            int facingDirection = transform.localScale.x > 0 ? 1 : -1;
+            rb.velocity = new Vector2(facingDirection * dashForce, 1.5f);
+
+            if (dashTimeRemaining <= 0)
+            {
+                isDashing = false;
+            }
+
+            return; // skip normal input while dashing
+        }
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        // flip sprite based on input
         if (horizontalInput < 0)
         {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
@@ -40,42 +68,42 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
+
         float nextVelocityX = horizontalInput * moveSpeed;
         float nextVelocityY = rb.velocity.y;
+
+        // Reset jumps when grounded
         if (CheckGrounded() && nextVelocityY <= 0)
         {
-            jumpsRemaining = maxJumps;
+            jumpsRemaining = maxJumpsInAir;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsRemaining > 0) // JUMP BUTTON
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsRemaining > 0)
         {
-            jumpsRemaining -= 1;
+            if (!CheckGrounded())
+            {
+                jumpsRemaining -= 1;
+            }
             nextVelocityY = jumpSpeed;
         }
 
-
-        dashCooldown -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space) && dashCooldown <= 0)
+        // dash input
+        if (Input.GetKeyDown(KeyCode.Space) && dashCooldown <= 0 && !CheckGrounded())
         {
-            Dash(horizontalInput);
+            Debug.Log("Dash activated!");
+
+            isDashing = true;
+            dashTimeRemaining = dashDuration;
             dashCooldown = dashCooldownMax;
+
+            return; // skip normal input this frame too
+        }
+
+        if (CheckGrounded())
+        {
+            dashCooldown = 0;
         }
 
         rb.velocity = new Vector2(nextVelocityX, nextVelocityY);
     }
-
-
-    public void Dash(float horizontalInput)
-    {
-        Debug.Log("activated dash");
-        if (horizontalInput == 0)
-        {
-            rb.AddForce(Vector2.up * dashForce, ForceMode2D.Impulse);
-        }
-        else
-        {
-            rb.AddForce(new Vector2(horizontalInput * dashForce, 0), ForceMode2D.Impulse);
-        }
-    }
-
 }
