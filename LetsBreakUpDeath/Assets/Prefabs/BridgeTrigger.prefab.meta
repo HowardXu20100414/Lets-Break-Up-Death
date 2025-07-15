@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:LetsBreakUpDeath/Assets/Prefabs/BridgeTrigger.prefab.meta
 guid: 5e4344d821d394947b7e69d6f5cc56da
+========
+guid: dba6bd5821ac0d544b062294c1a78955
+>>>>>>>> Stashed changes:LetsBreakUpDeath/Assets/Prefabs/Cars/RedCarA.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

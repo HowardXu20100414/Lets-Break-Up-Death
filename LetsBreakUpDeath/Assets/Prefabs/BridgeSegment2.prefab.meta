@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:LetsBreakUpDeath/Assets/Prefabs/BridgeSegment2.prefab.meta
 guid: 38d61d9eb43bc4b1c89b777491c243f7
+========
+guid: dc21b0e4bbf2817459130aba5838f741
+>>>>>>>> Stashed changes:LetsBreakUpDeath/Assets/Prefabs/Cars/BlueCarA.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
