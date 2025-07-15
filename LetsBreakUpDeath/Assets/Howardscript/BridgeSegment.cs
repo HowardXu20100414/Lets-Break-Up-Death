@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class BridgeSegment : MonoBehaviour
 {
-    public float delayBetweenPieces;
+    public float delayBetweenPieces = 2f;
     [HideInInspector]
     public int fallIndex = 0;
     public float destroyAfter = 5f;
-
-    public bool isFirst = false;
+    float fallDelay;
+    public int bridgeSegmentNumber;
+    public float firstSegmentDelay = 5f; //delay before first bridge segment falls
     Rigidbody2D rb;
 
     void Awake()
@@ -19,24 +20,31 @@ public class BridgeSegment : MonoBehaviour
 
     void Start()
     {
-        if (!isFirst)
+        AssignFallIndex();
+
+        if (fallIndex == 0)
         {
-            delayBetweenPieces = Random.Range(1.5f, 2.5f);
+            fallDelay = firstSegmentDelay;
         }
         else
         {
-            delayBetweenPieces = 5f;
+            fallDelay = fallIndex * delayBetweenPieces + firstSegmentDelay;
         }
 
-        AssignFallIndex();
+        if (fallIndex % 2 == 1)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
 
-        float fallDelay = fallIndex * delayBetweenPieces;
-        Invoke(nameof(Fall), fallDelay);
+        Invoke("Fall", fallDelay);
     }
 
     void AssignFallIndex()
     {
-        // Find all BridgeFallingPiece in the scene (or limit to parent children)
         // Find all BridgeFallingPiece in the scene 
         BridgeSegment[] allPieces = null;
 
@@ -47,11 +55,11 @@ public class BridgeSegment : MonoBehaviour
         }
         else
         {
-            // Otherwise find all in scene (less efficient)
+            // Otherwise find all in scene
             allPieces = FindObjectsOfType<BridgeSegment>();
         }
 
-        // Sort by x position ascending (left to right)
+        // Sort by x position
         var sorted = allPieces.OrderBy(p => p.transform.position.x).ToList();
 
         // Assign index based on sorted order

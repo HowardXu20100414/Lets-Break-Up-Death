@@ -15,7 +15,7 @@ public class FollowPlayer : MonoBehaviour
 
     float GetCameraY()
     {
-        float cameraModified = player.transform.position.y / 3 + 1;
+        float cameraModified = player.transform.position.y / 3 + 2;
 
         if (cameraModified <= lowerBound)
         {
