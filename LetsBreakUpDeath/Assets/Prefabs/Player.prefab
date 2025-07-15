@@ -76,7 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bridgePrefab: {fileID: 3423336832010153623, guid: f61979db70a1041a7927295e9097eb60, type: 3}
-  carPrefab: {fileID: 655663076225263379, guid: cff4e97f9e4451d43b46d598847e3dc1, type: 3}
+  carPrefabs:
+  - {fileID: 2953151158237433395, guid: 80303e72a1f55a44bab001303dc9f356, type: 3}
+  - {fileID: 7305889677448150697, guid: 50f11e3c4608a0b488337ac0d6bf6ce9, type: 3}
+  - {fileID: 405251549108558932, guid: 76cd20cd9f964064a95af1baa1c03635, type: 3}
 --- !u!1 &7374091254911760554
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +187,6 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 128
-  maxJumpsInAir: 1
-  jumpsRemaining: 0
-  dashForce: 30
 --- !u!50 &2253517529004355204
 Rigidbody2D:
   serializedVersion: 4

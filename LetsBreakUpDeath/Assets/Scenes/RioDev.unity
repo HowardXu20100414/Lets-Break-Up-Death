@@ -396,26 +396,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: carPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: carPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: carPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 2953151158237433395, guid: 80303e72a1f55a44bab001303dc9f356, type: 3}
-    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: carPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 7305889677448150697, guid: 50f11e3c4608a0b488337ac0d6bf6ce9, type: 3}
-    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: carPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 405251549108558932, guid: 76cd20cd9f964064a95af1baa1c03635, type: 3}
     - target: {fileID: 5128252634252035133, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -459,10 +439,6 @@ PrefabInstance:
     - target: {fileID: 7374091254911760554, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374091254911760554, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
