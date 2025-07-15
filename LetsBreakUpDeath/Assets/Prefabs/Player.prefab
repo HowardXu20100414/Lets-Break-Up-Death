@@ -77,9 +77,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bridgePrefab: {fileID: 3423336832010153623, guid: f61979db70a1041a7927295e9097eb60, type: 3}
   carPrefabs:
-  - {fileID: 2953151158237433395, guid: 80303e72a1f55a44bab001303dc9f356, type: 3}
-  - {fileID: 7305889677448150697, guid: 50f11e3c4608a0b488337ac0d6bf6ce9, type: 3}
-  - {fileID: 405251549108558932, guid: 76cd20cd9f964064a95af1baa1c03635, type: 3}
+  - {fileID: 7573553625821507566, guid: dc21b0e4bbf2817459130aba5838f741, type: 3}
+  - {fileID: 4392469456908120033, guid: dba6bd5821ac0d544b062294c1a78955, type: 3}
+  - {fileID: 3904859003889845662, guid: ebe650b571b7e4f4f8c251f4b6c342c5, type: 3}
 --- !u!1 &7374091254911760554
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 771632029683775024}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

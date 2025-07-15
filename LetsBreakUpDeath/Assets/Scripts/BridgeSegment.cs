@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BridgeFallingPiece : MonoBehaviour
+public class BridgeSegment : MonoBehaviour
 {
     public float delayBetweenPieces = 1f;
     public float shakeDuration = 0.4f;
@@ -11,27 +11,18 @@ public class BridgeFallingPiece : MonoBehaviour
     public float destroyAfter = 5f;
 
     public int fallIndex = 0;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     void Awake()
     {
+        Debug.Log("awake");
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     public void AssignFallIndex()
     {
-        BridgeFallingPiece[] allPieces;
-
-        if (transform.parent != null)
-        {
-            allPieces = transform.parent.GetComponentsInChildren<BridgeFallingPiece>();
-        }
-        else
-        {
-            allPieces = FindObjectsOfType<BridgeFallingPiece>();
-        }
-
+        BridgeSegment[] allPieces = FindObjectsOfType<BridgeSegment>();
         var sorted = allPieces.OrderBy(p => p.transform.position.x).ToList();
 
         for (int i = 0; i < sorted.Count; i++)
@@ -42,21 +33,24 @@ public class BridgeFallingPiece : MonoBehaviour
                 break;
             }
         }
+        Debug.Log($"{gameObject.name} assigned fallIndex: {fallIndex}");
     }
 
     public void TriggerFallSequence()
     {
         float fallDelay = fallIndex * delayBetweenPieces;
-        Invoke(nameof(PreFallShake), fallDelay);
+        Invoke("PreFallShake", fallDelay);
     }
 
     void PreFallShake()
     {
+        Debug.Log("Prefallshake invoked for " + gameObject.name);
         StartCoroutine(ShakeAndFall());
     }
 
     IEnumerator ShakeAndFall()
     {
+        Debug.Log("Shaking " + gameObject.name);
         Vector3 originalPos = transform.localPosition;
         float elapsed = 0f;
 
@@ -75,7 +69,11 @@ public class BridgeFallingPiece : MonoBehaviour
 
     void Fall()
     {
+        Debug.Log("Falling " + gameObject.name + " before: " + rb.bodyType);
         rb.bodyType = RigidbodyType2D.Dynamic;
+        Debug.Log("Falling " + gameObject.name + " after: " + rb.bodyType);
+        Debug.Log("Gravity: " + rb.gravityScale);
+
         Destroy(gameObject, destroyAfter);
     }
 }

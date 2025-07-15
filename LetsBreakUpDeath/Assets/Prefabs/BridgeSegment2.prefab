@@ -149,6 +149,7 @@ MonoBehaviour:
   shakeStrength: 0.1
   destroyAfter: 5
   fallIndex: 0
+  rb: {fileID: 0}
 --- !u!50 &-2729652385907265035
 Rigidbody2D:
   serializedVersion: 4

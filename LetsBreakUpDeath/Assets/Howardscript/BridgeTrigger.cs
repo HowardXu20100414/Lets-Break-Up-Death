@@ -1,24 +1,26 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class BridgeTrigger : MonoBehaviour
 {
-    private BridgeSpawner spawner;
     private bool triggered = false;
 
-    // Called by the spawner to give this trigger a reference back to it
-    public void Setup(BridgeSpawner s)
-    {
-        spawner = s;
-    }
-
-    // Called when any collider enters the trigger zone
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Only trigger once and only for the player
         if (!triggered && other.CompareTag("Player"))
         {
             triggered = true;
-            spawner.ActivateBridgeFall();
+            Debug.Log("Player entered bridge trigger. Initiating fall sequence for all segments.");
+
+            BridgeSegment[] allBridgeSegments = FindObjectsOfType<BridgeSegment>();
+
+            foreach (BridgeSegment segment in allBridgeSegments)
+            {
+                segment.AssignFallIndex();
+                segment.TriggerFallSequence();
+            }
         }
     }
 }
