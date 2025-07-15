@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarSpawner : MonoBehaviour
 {
     public GameObject bridgePrefab;
-    public GameObject carPrefab;
+    public GameObject[] carPrefabs;
     float bridgeTopY;
     float spawnRate;
     float spawnTimer;
@@ -27,11 +27,13 @@ public class CarSpawner : MonoBehaviour
 
         if (spawnTimer <= 0f)
         {
-            float carHeight = carPrefab.GetComponent<SpriteRenderer>().bounds.size.y;
+            GameObject randomCar = carPrefabs[Random.Range(0, carPrefabs.Length)];
 
-            float spawnY = bridgeTopY + carHeight / 2f; //offset so the bottom of the car lines up with the top of the bridge
+            float carHeight = randomCar.GetComponent<SpriteRenderer>().bounds.size.y;
 
-            Instantiate(carPrefab, new Vector2(transform.position.x, spawnY), Quaternion.identity);
+            float spawnY = bridgeTopY + carHeight / 2f - 0.15f; //offset so the bottom of the car lines up with the top of the bridge
+
+            Instantiate(randomCar, new Vector2(transform.position.x, spawnY), Quaternion.identity);
 
             SetNewSpawnRate();
         }
