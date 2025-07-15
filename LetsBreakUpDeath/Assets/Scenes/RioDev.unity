@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.18028301, g: 0.22571309, b: 0.30692127, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -398,6 +402,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
+      propertyPath: carPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7573553625821507566, guid: dc21b0e4bbf2817459130aba5838f741, type: 3}
+    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
+      propertyPath: carPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4392469456908120033, guid: dba6bd5821ac0d544b062294c1a78955, type: 3}
+    - target: {fileID: 911389834703719091, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
+      propertyPath: carPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3904859003889845662, guid: ebe650b571b7e4f4f8c251f4b6c342c5, type: 3}
     - target: {fileID: 5128252634252035133, guid: 319c1260171bf4c47819d50bc93fa94c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -554,6 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 398628699}
+<<<<<<< Updated upstream
 --- !u!1 &966568107
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +648,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  upperBound: 15
+  lowerBound: 0
+  pushUp: 0
+  divideBy: 3
+>>>>>>> Stashed changes
 --- !u!1 &1033864471
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,4 +792,7 @@ SceneRoots:
   - {fileID: 573647042}
   - {fileID: 753147906}
   - {fileID: 162747143}
+<<<<<<< Updated upstream
   - {fileID: 966568109}
+=======
+>>>>>>> Stashed changes
