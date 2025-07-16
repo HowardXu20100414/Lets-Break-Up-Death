@@ -5,10 +5,11 @@ using UnityEngine;
 public class GroupBridgeFallTrigger : MonoBehaviour
 {
     public List<GameObject> piecesToFall = new List<GameObject>();
-    public float shiverDuration = 0.5f;
-    public float shiverAmount = 0.05f;
+    public float shiverDuration = 0.7f;
+    public float shiverAmount = 0.15f;
     public bool autoCollectChildren = true;
 
+    public PlayerFreeze playerFreezeScript; // Drag your player here (must have PlayerFreeze.cs)
     private bool hasTriggered = false;
 
     void Start()
@@ -27,6 +28,15 @@ public class GroupBridgeFallTrigger : MonoBehaviour
         if (!hasTriggered && other.CompareTag("Player"))
         {
             hasTriggered = true;
+
+            // Freeze player movement
+            if (playerFreezeScript != null)
+                playerFreezeScript.Freeze();
+
+            // Trigger zoom shake effect
+            if (CameraZoomShake.instance != null)
+                CameraZoomShake.instance.TriggerZoomShake();
+
             StartCoroutine(FallSequence());
         }
     }
@@ -40,7 +50,7 @@ public class GroupBridgeFallTrigger : MonoBehaviour
             originalPositions[i] = piecesToFall[i].transform.position;
         }
 
-        // 🔄 Shivering phase
+        // Shiver blocks
         float timer = 0f;
         while (timer < shiverDuration)
         {
@@ -54,30 +64,22 @@ public class GroupBridgeFallTrigger : MonoBehaviour
             yield return null;
         }
 
-        // Reset to original position
-        for (int i = 0; i < piecesToFall.Count; i++)
-        {
-            piecesToFall[i].transform.position = originalPositions[i];
-        }
-
-        // ✅ SHAKE THE CAMERA!
-        if (CameraShake.instance != null)
-        {
-            CameraShake.instance.Shake(0.3f, 0.2f); // adjust for power
-        }
-
-        // ⬇️ Start the fall
+        // Reset position and apply physics
         for (int i = 0; i < piecesToFall.Count; i++)
         {
             GameObject block = piecesToFall[i];
+            block.transform.position = originalPositions[i];
 
+            // Turn grey
             Renderer rend = block.GetComponent<Renderer>();
             if (rend != null)
                 rend.material.color = Color.grey;
 
+            // Ensure collider
             if (block.GetComponent<Collider2D>() == null)
                 block.AddComponent<BoxCollider2D>();
 
+            // Add Rigidbody2D to fall
             Rigidbody2D rb = block.GetComponent<Rigidbody2D>();
             if (rb == null)
                 rb = block.AddComponent<Rigidbody2D>();
@@ -86,5 +88,11 @@ public class GroupBridgeFallTrigger : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
+
+        // Wait before unfreezing player
+        yield return new WaitForSeconds(0.3f);
+
+        if (playerFreezeScript != null)
+            playerFreezeScript.Unfreeze();
     }
 }
