@@ -32,7 +32,10 @@ public class Portal : MonoBehaviour
     private SpriteRenderer deathSpriteRenderer; // To control the fade
     private float initialCameraOrthographicSize = 7.5f; // Stores camera's initial zoom level (will be set dynamically)
 
-    // Start is called before the first frame update
+    // --- NEW: Dialogue Data Reference ---
+    [Header("Dialogue")]
+    public DialogueData deathDialogue; // Assign the DialogueData asset for Death's dialogue here
+
     void Awake()
     {
         // Initialize the Portal's Animator if it exists
@@ -69,18 +72,17 @@ public class Portal : MonoBehaviour
             followPlayerScript = mainCamera.GetComponent<FollowPlayer>();
         }
 
-        //// Store the camera's initial orthographic size for zooming
+        // Store the camera's initial orthographic size for zooming
         //if (mainCamera != null && mainCamera.orthographic)
         //{
         //    initialCameraOrthographicSize = mainCamera.orthographicSize;
         //}
         //else if (mainCamera != null && !mainCamera.orthographic)
         //{
-        //    Debug.LogWarning("Camera is not orthographic. Zooming will not work as expected.", this);
+        //    Debug.LogWarning("Camera is not orthographic. Zooming will not work as expected.");
         //}
     }
 
-    // Update is called once per frame
     void Update()
     {
         // No update logic needed for this animation
@@ -93,7 +95,7 @@ public class Portal : MonoBehaviour
         {
             triggered = true; // Set triggered to true to prevent re-triggering
 
-            // --- NEW: Get PlayerController and set floating state, passing portal's position ---
+            // Get PlayerController and set floating state, passing portal's position
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             if (playerController != null)
             {
@@ -104,11 +106,11 @@ public class Portal : MonoBehaviour
             // Stop any existing coroutines on this script to prevent conflicts
             StopAllCoroutines();
 
-            // Disable the FollowPlayer script BEFORE starting our custom camera animation
-            if (followPlayerScript != null)
-            {
-                followPlayerScript.enabled = false;
-            }
+            //// Disable the FollowPlayer script BEFORE starting our custom camera animation
+            //if (followPlayerScript != null)
+            //{
+            //    followPlayerScript.enabled = false;
+            //}
 
             StartCoroutine(DeathAppearAndMoveAnimation());
             // Start camera shake concurrently with the main animation
@@ -171,17 +173,28 @@ public class Portal : MonoBehaviour
             mainCamera.orthographicSize = cameraZoomOutTargetSize; // Keep zoomed out
         }
 
-        //// --- Important: Re-enable the FollowPlayer script here! ---
-        //if (followPlayerScript != null)
-        //{
-        //    followPlayerScript.enabled = true;
-        //    // The FollowPlayer script will now take over and ensure the camera
-        //    // stays on the player's X position, while our custom zoom-out
-        //    // ensures both are in view. You might need to adjust bounds in FollowPlayer
-        //    // for the new zoom level.
-        //}
+        // --- Important: Re-enable the FollowPlayer script here! ---
+        if (followPlayerScript != null)
+        {
+            followPlayerScript.enabled = true;
+            // The FollowPlayer script will now take over and ensure the camera
+            // stays on the player's X position, while our custom zoom-out
+            // ensures both are in view. You might need to adjust bounds in FollowPlayer
+            // for the new zoom level.
+        }
 
-        startBobbing = true;
+        startBobbing = true; // Death is now in its final position and ready to bob
+
+        // --- NEW: Trigger Dialogue ---
+        if (DialogueManager.Instance != null && deathDialogue != null)
+        {
+            DialogueManager.Instance.StartDialogue(deathDialogue);
+        }
+        else
+        {
+            if (DialogueManager.Instance == null) Debug.LogWarning("DialogueManager.Instance is null. Make sure DialogueManager is in the scene.");
+            if (deathDialogue == null) Debug.LogWarning("Death Dialogue Data is not assigned in the Portal script.");
+        }
     }
 
     // Coroutine for Camera Shake
