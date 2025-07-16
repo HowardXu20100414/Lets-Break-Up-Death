@@ -21,5 +21,4 @@ public class BridgeTrigger : MonoBehaviour
             spawner.ActivateBridgeFall();
         }
     }
-}
-*/////*/*/**/
+}*/

@@ -1,35 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
+
+    public float verticalOffset = -2f;  // How much space below the player to show
     public float upperBound = 15f;
     public float lowerBound = 0f;
-    public float pushUp; // how far to push the camera up
-    public float divideBy = 3; // what do divide the camera y by
+
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, GetCameraY(), transform.position.z);
-    }
+        Vector3 newPos = transform.position;
+        newPos.x = player.transform.position.x;
 
+        float targetY = player.transform.position.y + verticalOffset;
+        targetY = Mathf.Clamp(targetY, lowerBound, upperBound);
+        newPos.y = targetY;
 
-    float GetCameraY()
-    {
-        float cameraModified = player.transform.position.y / divideBy + pushUp;
-
-        if (cameraModified <= lowerBound)
-        {
-            return(lowerBound);
-        }
-        else if (cameraModified >= upperBound)
-        {
-            return (upperBound);
-        }
-        else
-        {
-            return (cameraModified);
-        }
+        transform.position = newPos;
     }
 }
