@@ -19,13 +19,11 @@ public class BridgeSpawner : MonoBehaviour
         {
             float adjustedSegmentLength = bridgePrefabLength;
 
-            GameObject bridgeObj = Instantiate(bridgePrefab, new Vector3(currentXPosition * 0.9f, transform.position.y, transform.position.z), Quaternion.identity);
-            Debug.Log($"Spawned Bridge Segment {i} at {bridgeObj.transform.position}");
+            GameObject bridgeObj = Instantiate(bridgePrefab, new Vector3(currentXPosition * 0.95f, transform.position.y, transform.position.z), Quaternion.identity);
 
             currentXPosition += adjustedSegmentLength;
         }
 
         GameObject triggerObj = Instantiate(bridgeTriggerPrefab, bridgeTriggerLocation, Quaternion.identity);
-        Debug.Log($"Spawned Single Bridge Trigger at {triggerObj.transform.position}");
     }
 }

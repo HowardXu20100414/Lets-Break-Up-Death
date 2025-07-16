@@ -51,6 +51,7 @@ MonoBehaviour:
   shakeDuration: 0.4
   shakeStrength: 0.1
   destroyAfter: 5
+  randomTriggerPrefab: {fileID: 3814297769344269843, guid: a780c11c82ed77346ab27f0c17523e63, type: 3}
   fallIndex: 0
   rb: {fileID: 1899776291653135341}
 --- !u!212 &7252551602017298964

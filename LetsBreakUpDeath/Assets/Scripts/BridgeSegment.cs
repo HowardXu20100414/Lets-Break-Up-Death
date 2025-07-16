@@ -9,15 +9,21 @@ public class BridgeSegment : MonoBehaviour
     public float shakeDuration = 0.4f;
     public float shakeStrength = 0.1f;
     public float destroyAfter = 5f;
+    public GameObject randomTriggerPrefab;
 
     public int fallIndex = 0;
     public Rigidbody2D rb;
 
     void Awake()
     {
-        Debug.Log("awake");
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
+
+
+        if (Random.value < .2)
+        {
+            Instantiate(randomTriggerPrefab, new Vector3(transform.position.x + 3, transform.position.y + 10, transform.position.z), Quaternion.identity);
+        }
     }
 
     public void AssignFallIndex()
@@ -33,7 +39,6 @@ public class BridgeSegment : MonoBehaviour
                 break;
             }
         }
-        Debug.Log($"{gameObject.name} assigned fallIndex: {fallIndex}");
     }
 
     public void TriggerFallSequence()
@@ -44,13 +49,11 @@ public class BridgeSegment : MonoBehaviour
 
     void PreFallShake()
     {
-        Debug.Log("Prefallshake invoked for " + gameObject.name);
         StartCoroutine(ShakeAndFall());
     }
 
-    IEnumerator ShakeAndFall()
+    public IEnumerator ShakeAndFall()
     {
-        Debug.Log("Shaking " + gameObject.name);
         Vector3 originalPos = transform.localPosition;
         float elapsed = 0f;
 
@@ -69,10 +72,7 @@ public class BridgeSegment : MonoBehaviour
 
     void Fall()
     {
-        Debug.Log("Falling " + gameObject.name + " before: " + rb.bodyType);
         rb.bodyType = RigidbodyType2D.Dynamic;
-        Debug.Log("Falling " + gameObject.name + " after: " + rb.bodyType);
-        Debug.Log("Gravity: " + rb.gravityScale);
 
         Destroy(gameObject, destroyAfter);
     }
