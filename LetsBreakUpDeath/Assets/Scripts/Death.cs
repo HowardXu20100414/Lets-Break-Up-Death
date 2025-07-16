@@ -6,12 +6,14 @@ public class Death : MonoBehaviour
 {
     private float bobHeight = 0.03f; // How much the player bobs up and down
     private float bobSpeed = 3f;    // How fast the player bobs
+    public Animator anim;
     Rigidbody2D rb;
     public GameObject portal;
     Portal portalScript;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         portalScript = portal.GetComponent<Portal>();
     }

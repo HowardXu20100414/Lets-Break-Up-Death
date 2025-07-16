@@ -106,11 +106,11 @@ public class Portal : MonoBehaviour
             // Stop any existing coroutines on this script to prevent conflicts
             StopAllCoroutines();
 
-            //// Disable the FollowPlayer script BEFORE starting our custom camera animation
-            //if (followPlayerScript != null)
-            //{
-            //    followPlayerScript.enabled = false;
-            //}
+            // Disable the FollowPlayer script BEFORE starting our custom camera animation
+            if (followPlayerScript != null)
+            {
+                followPlayerScript.enabled = false;
+            }
 
             StartCoroutine(DeathAppearAndMoveAnimation());
             // Start camera shake concurrently with the main animation
@@ -174,14 +174,14 @@ public class Portal : MonoBehaviour
         }
 
         // --- Important: Re-enable the FollowPlayer script here! ---
-        if (followPlayerScript != null)
-        {
-            followPlayerScript.enabled = true;
-            // The FollowPlayer script will now take over and ensure the camera
-            // stays on the player's X position, while our custom zoom-out
-            // ensures both are in view. You might need to adjust bounds in FollowPlayer
-            // for the new zoom level.
-        }
+        //if (followPlayerScript != null)
+        //{
+        //    followPlayerScript.enabled = true;
+        //    // The FollowPlayer script will now take over and ensure the camera
+        //    // stays on the player's X position, while our custom zoom-out
+        //    // ensures both are in view. You might need to adjust bounds in FollowPlayer
+        //    // for the new zoom level.
+        //}
 
         startBobbing = true; // Death is now in its final position and ready to bob
 
