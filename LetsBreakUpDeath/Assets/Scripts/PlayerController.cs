@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    public GameObject portal; // This should be assigned to the specific portal the player is entering
 
     [Header("Movement")]
     public float moveSpeed = 10f;
@@ -28,9 +29,34 @@ public class PlayerController : MonoBehaviour
     bool isDashing = false;
     float dashTimeRemaining;
 
+    // --- NEW: Floating State Variables ---
+    private bool isFloatingInPortal = false;
+    private float originalGravityScale; // To store the player's original gravity scale
+
+    // --- NEW: Bobbing Parameters ---
+    [Header("Portal Bobbing")]
+    private float bobHeight = 0.2f; // How much the player bobs up and down
+    private float bobSpeed = 5f;    // How fast the player bobs
+    private float moveIntoPortalDuration = 0.5f; // How long it takes to move to portal center
+
+    private Vector3 portalCenterPosition; // The calculated center position inside the portal
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalGravityScale = rb.gravityScale; // Store original gravity scale
+
+        // If the portal is not assigned in the Inspector, try to find it by tag or name
+        // It's best to assign it manually or have the Portal script pass its position.
+        // For simplicity, we'll assume it's assigned or found.
+        if (portal == null)
+        {
+            portal = GameObject.FindGameObjectWithTag("Portal"); // Example: if your portal has a "Portal" tag
+            if (portal == null)
+            {
+                Debug.LogWarning("Portal GameObject not assigned in PlayerController and not found by tag 'Portal'. Bobbing may not work as expected.", this);
+            }
+        }
     }
 
     bool CheckGrounded()
@@ -40,6 +66,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // --- NEW: Handle bobbing if floating ---
+        if (isFloatingInPortal)
+        {
+            // Apply bobbing motion using Mathf.Sin
+            float bobbingOffset = Mathf.Sin(Time.time * bobSpeed) * bobHeight;
+            // The player's X position remains fixed at the portal's center X
+            // The player's Y position bobs around the portal's center Y
+            rb.position = new Vector2(portalCenterPosition.x, portalCenterPosition.y + bobbingOffset);
+
+            rb.velocity = Vector2.zero; // Ensure no lingering velocity from physics
+            return; // Skip the rest of the Update loop
+        }
+
         dashCooldown -= Time.deltaTime;
 
         if (isDashing)
@@ -105,5 +144,45 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = new Vector2(nextVelocityX, nextVelocityY);
+    }
+
+    // --- NEW: Public method to control floating state with bobbing ---
+    public void SetFloatingInPortal(bool floating, Vector3 portalPos)
+    {
+        isFloatingInPortal = floating;
+        if (floating)
+        {
+            portalCenterPosition = portalPos; // Store the portal's center
+            rb.gravityScale = 0f;               // Disable gravity
+            rb.velocity = Vector2.zero;         // Stop current velocity
+
+            StopAllCoroutines(); // Stop any previous bobbing coroutines if active
+            StartCoroutine(MoveToPortalAndBob()); // Start the new coroutine
+        }
+        else
+        {
+            rb.gravityScale = originalGravityScale; // Restore original gravity
+            StopAllCoroutines(); // Stop bobbing when no longer floating
+        }
+    }
+
+    // Coroutine to move player to portal center and then start bobbing
+    IEnumerator MoveToPortalAndBob()
+    {
+        Vector3 startPosition = transform.position;
+        float timer = 0f;
+
+        // Phase 1: Move to portal center smoothly
+        while (timer < moveIntoPortalDuration)
+        {
+            timer += Time.deltaTime;
+            float progress = timer / moveIntoPortalDuration;
+            transform.position = Vector3.Lerp(startPosition, portalCenterPosition, progress);
+            yield return null;
+        }
+        transform.position = portalCenterPosition; // Ensure exact final position
+
+        // Phase 2: Bobbing (handled continuously in Update while isFloatingInPortal is true)
+        // This coroutine finishes here, and the Update method takes over for the continuous bobbing.
     }
 }
