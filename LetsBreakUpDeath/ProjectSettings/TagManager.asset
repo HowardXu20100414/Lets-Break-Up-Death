@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BridgePiece
   - BridgeSegment
+  - Car
   layers:
   - Default
   - TransparentFX
