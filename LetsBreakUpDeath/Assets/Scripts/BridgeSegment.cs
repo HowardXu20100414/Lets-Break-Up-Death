@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BridgeFallingPiece : MonoBehaviour
+public class BridgeSegment : MonoBehaviour
 {
     public float delayBetweenPieces = 1f;
     public float shakeDuration = 0.4f;
     public float shakeStrength = 0.1f;
     public float destroyAfter = 5f;
+    public GameObject randomTriggerPrefab;
 
     public int fallIndex = 0;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
+
+
+        if (Random.value < .2)
+        {
+            Instantiate(randomTriggerPrefab, new Vector3(transform.position.x + 3, transform.position.y + 10, transform.position.z), Quaternion.identity);
+        }
     }
 
     public void AssignFallIndex()
     {
-        BridgeFallingPiece[] allPieces;
-
-        if (transform.parent != null)
-        {
-            allPieces = transform.parent.GetComponentsInChildren<BridgeFallingPiece>();
-        }
-        else
-        {
-            allPieces = FindObjectsOfType<BridgeFallingPiece>();
-        }
-
+        BridgeSegment[] allPieces = FindObjectsOfType<BridgeSegment>();
         var sorted = allPieces.OrderBy(p => p.transform.position.x).ToList();
 
         for (int i = 0; i < sorted.Count; i++)
@@ -47,7 +44,7 @@ public class BridgeFallingPiece : MonoBehaviour
     public void TriggerFallSequence()
     {
         float fallDelay = fallIndex * delayBetweenPieces;
-        Invoke(nameof(PreFallShake), fallDelay);
+        Invoke("PreFallShake", fallDelay);
     }
 
     void PreFallShake()
@@ -55,7 +52,7 @@ public class BridgeFallingPiece : MonoBehaviour
         StartCoroutine(ShakeAndFall());
     }
 
-    IEnumerator ShakeAndFall()
+    public IEnumerator ShakeAndFall()
     {
         Vector3 originalPos = transform.localPosition;
         float elapsed = 0f;
@@ -76,6 +73,7 @@ public class BridgeFallingPiece : MonoBehaviour
     void Fall()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+
         Destroy(gameObject, destroyAfter);
     }
 }

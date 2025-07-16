@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // dash input
         if (Input.GetKeyDown(KeyCode.Space) && dashCooldown <= 0 && !CheckGrounded())
         {
-            Debug.Log("Dash activated!");
+            //Debug.Log("Dash activated!");
 
             isDashing = true;
             dashTimeRemaining = dashDuration;
