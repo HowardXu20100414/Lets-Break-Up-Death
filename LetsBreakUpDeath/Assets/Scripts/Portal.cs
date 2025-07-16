@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public bool triggered = false; // Public for debugging, but typically private
+    bool triggered = false; // Public for debugging, but typically private
+    public bool startBobbing = false;
 
     public GameObject death;
     public float fadeDuration = 1.5f; // How long it takes for Death to fully fade in
@@ -179,6 +180,8 @@ public class Portal : MonoBehaviour
         //    // ensures both are in view. You might need to adjust bounds in FollowPlayer
         //    // for the new zoom level.
         //}
+
+        startBobbing = true;
     }
 
     // Coroutine for Camera Shake

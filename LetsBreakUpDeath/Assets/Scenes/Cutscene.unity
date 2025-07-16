@@ -1523,6 +1523,7 @@ GameObject:
   - component: {fileID: 729744178}
   - component: {fileID: 729744177}
   - component: {fileID: 729744179}
+  - component: {fileID: 729744180}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -1624,6 +1625,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &729744180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729744176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7918c13b94eaf41aaaeb63a17ab857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portal: {fileID: 1681536184}
 --- !u!1 &735628145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,7 +3733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d09334d8f82d8478047c14d98d9bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggered: 0
+  startBobbing: 0
   death: {fileID: 729744176}
   fadeDuration: 2
   moveDuration: 3
