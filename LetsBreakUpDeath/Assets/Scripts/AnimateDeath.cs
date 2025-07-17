@@ -28,7 +28,7 @@ public class AnimateDeath : MonoBehaviour
         }
         if (DialogueManager.Instance.isEnded)
         {
-            GameManager.instance.LoadScene("Level");
+            GameManager.instance.LoadScene(GameManager.instance.levelScene);
         }
     }
 }
