@@ -1861,8 +1861,6 @@ MonoBehaviour:
   dialogueText: {fileID: 2110485994}
   continueButton: {fileID: 1643899359}
   typingSpeed: 0.05
-  targetScaleMultiplier: 1.5
-  scaleDuration: 1
 --- !u!4 &709660210
 Transform:
   m_ObjectHideFlags: 0
@@ -3379,53 +3377,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1266139626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266139628}
-  - component: {fileID: 1266139627}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1266139627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266139626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529e5971bd1c92f45b467a681e32debe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuScene: Prototype 5 - Menu
-  levelScene: Level
-  cutScene: Cutscene
---- !u!4 &1266139628
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266139626}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29747692, y: 2.3364463, z: -0.20293643}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312380092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,7 +5198,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1023476578}
   - {fileID: 35721292}
-  - {fileID: 709660210}
   - {fileID: 522265797}
   - {fileID: 519761737}
   - {fileID: 1591585842}
@@ -5258,4 +5208,4 @@ SceneRoots:
   - {fileID: 1681536187}
   - {fileID: 729744178}
   - {fileID: 1549936536}
-  - {fileID: 1266139628}
+  - {fileID: 709660210}
