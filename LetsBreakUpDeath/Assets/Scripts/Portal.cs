@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-// using JetBrains.Annotations; // Not strictly needed for Unity functionality, can remove.
 using UnityEngine;
+using UnityEngine.Events; // Required for UnityEvents
 
 public class Portal : MonoBehaviour
 {
@@ -32,9 +32,9 @@ public class Portal : MonoBehaviour
     private SpriteRenderer deathSpriteRenderer; // To control the fade
     private float initialCameraOrthographicSize = 7.5f; // Stores camera's initial zoom level (will be set dynamically)
 
-    // --- NEW: Dialogue Data Reference ---
-    [Header("Dialogue")]
-    public DialogueData deathDialogue; // Assign the DialogueData asset for Death's dialogue here
+    // --- MODIFIED: Reference to NPCDialogueTrigger on Death GameObject ---
+    [Header("Death Dialogue Trigger")]
+    public NPCDialogueTrigger deathNPCDialogueTrigger; // Assign the NPCDialogueTrigger component from your Death GameObject here
 
     void Awake()
     {
@@ -72,7 +72,7 @@ public class Portal : MonoBehaviour
             followPlayerScript = mainCamera.GetComponent<FollowPlayer>();
         }
 
-        // Store the camera's initial orthographic size for zooming
+        //// Store the camera's initial orthographic size for zooming
         //if (mainCamera != null && mainCamera.orthographic)
         //{
         //    initialCameraOrthographicSize = mainCamera.orthographicSize;
@@ -81,6 +81,16 @@ public class Portal : MonoBehaviour
         //{
         //    Debug.LogWarning("Camera is not orthographic. Zooming will not work as expected.");
         //}
+
+        // --- NEW: Get NPCDialogueTrigger from Death GameObject if not assigned ---
+        if (death != null && deathNPCDialogueTrigger == null)
+        {
+            deathNPCDialogueTrigger = death.GetComponent<NPCDialogueTrigger>();
+            if (deathNPCDialogueTrigger == null)
+            {
+                Debug.LogError("NPCDialogueTrigger component not found on Death GameObject! Please assign it in the Inspector or ensure it's attached to Death.", this);
+            }
+        }
     }
 
     void Update()
@@ -174,6 +184,7 @@ public class Portal : MonoBehaviour
         }
 
         // --- Important: Re-enable the FollowPlayer script here! ---
+        // This was commented out in your original code, but typically you'd want the camera to follow again
         //if (followPlayerScript != null)
         //{
         //    followPlayerScript.enabled = true;
@@ -185,15 +196,14 @@ public class Portal : MonoBehaviour
 
         startBobbing = true; // Death is now in its final position and ready to bob
 
-        // --- NEW: Trigger Dialogue ---
-        if (DialogueManager.Instance != null && deathDialogue != null)
+        // --- MODIFIED: Trigger Dialogue via NPCDialogueTrigger ---
+        if (deathNPCDialogueTrigger != null)
         {
-            DialogueManager.Instance.StartDialogue(deathDialogue);
+            deathNPCDialogueTrigger.TriggerDialogue();
         }
         else
         {
-            if (DialogueManager.Instance == null) Debug.LogWarning("DialogueManager.Instance is null. Make sure DialogueManager is in the scene.");
-            if (deathDialogue == null) Debug.LogWarning("Death Dialogue Data is not assigned in the Portal script.");
+            Debug.LogWarning("Death's NPCDialogueTrigger is not assigned or found. Dialogue will not start.");
         }
     }
 

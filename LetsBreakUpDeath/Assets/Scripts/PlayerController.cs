@@ -45,10 +45,6 @@ public class PlayerController : MonoBehaviour
         if (portal == null)
         {
             portal = GameObject.FindGameObjectWithTag("Portal");
-            if (portal == null)
-            {
-                Debug.LogWarning("Portal GameObject not assigned or found.");
-            }
         }
     }
 
