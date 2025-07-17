@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public string menuScene = "MainMenu";
     public string levelScene = "Level";
     public string cutScene = "Cutscene";
+    public string level3 = "Level3";
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);

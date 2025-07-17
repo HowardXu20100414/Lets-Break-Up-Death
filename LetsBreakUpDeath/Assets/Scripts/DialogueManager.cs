@@ -1,44 +1,35 @@
 using System.Collections;
-using TMPro; // Required for TextMeshPro
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Required for Button
+using UnityEngine.UI;
+using UnityEngine.Events; // For optional dialogue end callback
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject death; // Drag your Death GameObject here in the Inspector
-    Animator deathAnim; // Animator component of the Death GameObject
+    public bool isEnded;
+
+
+    // ... (UI References and Dialogue Settings remain the same) ...
     public GameObject dialoguePanel;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Button continueButton;
 
-    public float typingSpeed = 0.05f; // Speed at which text appears letter by letter
-    private float talkingAnimationSwitchSpeed = .2f; // How fast Death switches between Idle/Talking
+    [Header("Dialogue Settings")]
+    public float typingSpeed = 0.05f;
 
     private DialogueData currentDialogue;
-    private int currentLineIndex;
+    public int currentLineIndex;
     private Coroutine typingCoroutine;
-    private Coroutine currentAnimationCoroutine; // NEW: To control the animation switching coroutine
-    private bool isTyping; // To prevent input while text is typing
+    private bool isTyping;
+    private UnityAction onDialogueCompleteCallback;
+    private UnityAction<int> onLineDisplayedCallback; // NEW: Callback for when a line is displayed
 
-    public static DialogueManager Instance { get; private set; } // Singleton pattern
+    public static DialogueManager Instance { get; private set; }
 
     void Awake()
     {
-        // Get Death's Animator component
-        if (death != null)
-        {
-            deathAnim = death.GetComponent<Animator>();
-            if (deathAnim == null)
-            {
-                Debug.LogError("Death GameObject assigned but has no Animator component!", this);
-            }
-        }
-        else
-        {
-            Debug.LogError("Death GameObject is not assigned in DialogueManager! Please assign it in the Inspector.", this);
-        }
-
+        // ... (Singleton and UI assignment checks remain the same) ...
         if (Instance == null)
         {
             Instance = this;
@@ -46,26 +37,41 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
-        // Ensure UI elements are assigned
         if (dialoguePanel == null || nameText == null || dialogueText == null || continueButton == null)
         {
             Debug.LogError("Dialogue UI elements not assigned in DialogueManager!", this);
-            enabled = false; // Disable script if critical elements are missing
+            enabled = false;
         }
         else
         {
-            continueButton.onClick.AddListener(DisplayNextLine); // Add listener for the button
-            dialoguePanel.SetActive(false); // Hide panel initially
+            continueButton.onClick.AddListener(DisplayNextLine);
+            dialoguePanel.SetActive(false);
         }
     }
 
-    public void StartDialogue(DialogueData dialogue)
+    /// <summary>
+    /// Starts a new dialogue sequence.
+    /// </summary>
+    /// <param name="dialogue">The DialogueData ScriptableObject containing the conversation.</param>
+    /// <param name="onComplete">An optional UnityAction to call when the dialogue finishes.</param>
+    /// <param name="onLineDisplayed">NEW: An optional UnityAction<int> to call with the line index when each line is displayed.</param>
+    public void StartDialogue(DialogueData dialogue, UnityAction onComplete = null, UnityAction<int> onLineDisplayed = null)
     {
+        if (dialogue == null)
+        {
+            Debug.LogError("Attempted to start dialogue with null DialogueData.", this);
+            return;
+        }
+
         currentDialogue = dialogue;
         currentLineIndex = 0;
-        dialoguePanel.SetActive(true); // Show dialogue panel
+        onDialogueCompleteCallback = onComplete;
+        onLineDisplayedCallback = onLineDisplayed; // NEW: Store the line displayed callback
+
+        dialoguePanel.SetActive(true);
 
         DisplayNextLine(); // Start displaying the first line
     }
@@ -79,16 +85,9 @@ public class DialogueManager : MonoBehaviour
             {
                 StopCoroutine(typingCoroutine);
             }
-            // Ensure the text is fully displayed for the previous line
             dialogueText.text = currentDialogue.conversation[currentLineIndex - 1].line;
             isTyping = false;
             return;
-        }
-
-        // Stop any ongoing animation coroutine before starting a new one
-        if (currentAnimationCoroutine != null)
-        {
-            StopCoroutine(currentAnimationCoroutine);
         }
 
         if (currentLineIndex < currentDialogue.conversation.Length)
@@ -96,22 +95,8 @@ public class DialogueManager : MonoBehaviour
             DialogueLine line = currentDialogue.conversation[currentLineIndex];
             nameText.text = line.characterName;
 
-            // --- NEW: Animation Logic based on line index ---
-            if (deathAnim != null) // Only attempt to control animation if Animator exists
-            {
-                if (currentLineIndex == 0 || currentLineIndex == 1) // First two lines
-                {
-                    currentAnimationCoroutine = StartCoroutine(AnimateTalkingRapidly());
-                }
-                else if (currentLineIndex == 2) // Third line
-                {
-                    deathAnim.Play("Angry"); // Play the "Angry" animation directly
-                }
-                else // For any subsequent lines, default to Idle (or specific anim if needed)
-                {
-                    deathAnim.Play("Idle");
-                }
-            }
+            // NEW: Invoke the callback *before* typing the line, passing the currentLineIndex
+            onLineDisplayedCallback?.Invoke(currentLineIndex);
 
             // Start typing the new line
             if (typingCoroutine != null)
@@ -130,7 +115,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeLine(string lineToType)
     {
         isTyping = true;
-        dialogueText.text = ""; // Clear previous text
+        dialogueText.text = "";
         foreach (char letter in lineToType.ToCharArray())
         {
             dialogueText.text += letter;
@@ -139,37 +124,17 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
     }
 
-    // NEW: Coroutine for rapidly switching between Idle and Talking
-    IEnumerator AnimateTalkingRapidly()
-    {
-        while (true) // Loop indefinitely until stopped
-        {
-            deathAnim.Play("Talking");
-            yield return new WaitForSeconds(talkingAnimationSwitchSpeed + Random.Range(-.2f, .2f));
-            deathAnim.Play("Idle");
-            yield return new WaitForSeconds(talkingAnimationSwitchSpeed + Random.Range(-.2f, .2f));
-        }
-    }
-
     void EndDialogue()
     {
-        dialoguePanel.SetActive(false); // Hide dialogue panel
+        dialoguePanel.SetActive(false);
         currentDialogue = null;
         currentLineIndex = 0;
         isTyping = false;
 
-        // NEW: Stop any ongoing animation coroutine and reset Death's animation to Idle
-        if (currentAnimationCoroutine != null)
-        {
-            StopCoroutine(currentAnimationCoroutine);
-            currentAnimationCoroutine = null;
-        }
-        if (deathAnim != null)
-        {
-            deathAnim.Play("Idle"); // Reset to idle when dialogue ends
-        }
-
-        // Optionally, re-enable player movement here
+        onDialogueCompleteCallback?.Invoke();
+        onDialogueCompleteCallback = null;
+        onLineDisplayedCallback = null; // NEW: Clear this callback too
+        isEnded = true;
         Debug.Log("Dialogue ended!");
     }
 }

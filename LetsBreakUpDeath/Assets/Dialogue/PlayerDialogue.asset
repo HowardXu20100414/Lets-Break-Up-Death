@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5866c7ce0859066489d22790c6bd9014, type: 3}
-  m_Name: DialogueData
+  m_Name: PlayerDialogue
   m_EditorClassIdentifier: 
   conversation:
-  - characterName: Death
-    line: What are you doing up there?
-  - characterName: Death
-    line: Are you trying to... escape?
-  - characterName: Death
-    line: I thought you loved me...
-  - characterName: Death
-    line: You're dead to me.
+  - characterName: You
+    line: 'I guess I escaped...
+
+'
+  - characterName: You
+    line: The portal worked!
+  - characterName: You
+    line: I just hope Death can't follow me
