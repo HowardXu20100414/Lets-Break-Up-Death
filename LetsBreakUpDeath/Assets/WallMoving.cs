@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveRightFollowPlayer : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class MoveRightFollowPlayer : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameManager.instance.LoadScene(GameManager.instance.level3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
