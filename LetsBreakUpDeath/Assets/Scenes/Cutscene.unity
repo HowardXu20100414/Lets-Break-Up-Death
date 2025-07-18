@@ -3020,6 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529e5971bd1c92f45b467a681e32debe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   menuScene: Prototype 5 - Menu
   levelScene: Level
   cutScene: Cutscene
@@ -4453,7 +4454,7 @@ GameObject:
   - component: {fileID: 1978558880}
   - component: {fileID: 1978558881}
   - component: {fileID: 1978558882}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ArrowWithTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

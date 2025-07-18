@@ -42,5 +42,9 @@ public class GameManager : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
+        if (currentSceneName == cutScene)
+        {
+            Time.timeScale = 1f;
+        }
     }
 }
