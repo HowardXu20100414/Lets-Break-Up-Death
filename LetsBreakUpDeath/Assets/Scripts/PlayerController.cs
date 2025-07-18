@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GameManager.instance.LoadScene("MainMenu");
+            GameManager.instance.LoadScene("Cutscene");
+            GameManager.instance.timer = 0f;
         }
 
         dashCooldown -= Time.deltaTime;
