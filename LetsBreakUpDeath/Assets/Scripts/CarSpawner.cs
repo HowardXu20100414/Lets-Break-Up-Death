@@ -6,17 +6,13 @@ public class CarSpawner : MonoBehaviour
 {
     public GameObject bridgePrefab;
     public GameObject[] carPrefabs;
-    float bridgeTopY;
+    float bridgeTopY = -7.5f;
     float spawnRate;
     float spawnTimer;
-    float minSpawnRate = 3f;
-    float maxSpawnRate = 7f;
+    float minSpawnRate = 1f;
+    float maxSpawnRate = 2f;
     void Start()
     {
-        if (bridgePrefab != null)
-        {
-            bridgeTopY = bridgePrefab.GetComponent<SpriteRenderer>().bounds.max.y;
-        }
 
         SetNewSpawnRate();
     }
