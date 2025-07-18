@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         float nextVelocityX = horizontalInput * moveSpeed;
         float nextVelocityY = rb.velocity.y;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsRemaining > 0)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && jumpsRemaining > 0)
         {
             if (!CheckGrounded())
                 jumpsRemaining--;
