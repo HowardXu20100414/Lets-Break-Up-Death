@@ -6,6 +6,7 @@ using UnityEngine;
 public class End : MonoBehaviour
 {
     public GameObject EndText;
+    public GameObject OtherText;
     public TMP_Text EndTextText;
     Animator anim;
     // Start is called before the first frame update
@@ -26,9 +27,9 @@ public class End : MonoBehaviour
         if (collision.tag == "Player")
         {
             EndText.SetActive(true);
-            EndTextText.text = "You Won! Time: " + Time.time;
+            OtherText.SetActive(true);
+            EndTextText.text = "You Won! Time: " + GameManager.instance.timer.ToString("F2");
             
-            Time.timeScale = 0;
         }
     }
 }

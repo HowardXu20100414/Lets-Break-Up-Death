@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public float timer;
     void Awake()
     {
         if (instance == null)
@@ -33,5 +33,14 @@ public class GameManager : MonoBehaviour
     {
         print(name);
         SceneManager.LoadScene(name);
+    }
+
+    void Update()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName != menuScene) // Exclude menu and cutscene
+        {
+            timer += Time.deltaTime;
+        }
     }
 }

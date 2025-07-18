@@ -768,6 +768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02db24da249c9b4db9378e4039e1c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialTime: 0
+  startTime: 0
 --- !u!4 &790543170
 Transform:
   m_ObjectHideFlags: 0
@@ -1053,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529e5971bd1c92f45b467a681e32debe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   menuScene: Prototype 5 - Menu
   levelScene: Level
   cutScene: Cutscene

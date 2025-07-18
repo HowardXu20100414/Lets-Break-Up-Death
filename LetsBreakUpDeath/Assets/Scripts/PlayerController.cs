@@ -55,6 +55,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameManager.instance.LoadScene("MainMenu");
+        }
+
         dashCooldown -= Time.deltaTime;
 
         if (isFloatingInPortal)
